@@ -1,0 +1,48 @@
+body {
+    background-color: #343232
+}
+
+.myName {
+    text-align: center;
+    margin-top: 50px;
+    color: rgb(232, 232, 232);
+    font-size: 30px;
+}
+
+.myPic {
+    width: 100%;
+    height: 210px;
+    margin-top: 10px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 200px;
+  
+}
+
+
+.Intro {
+    margin-top: 5px;
+    margin: 0 auto;
+    width: 340px; 
+    height: 400px;
+    text-align: center;
+}
+
+.myName {
+    margin-top: 0;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.myTitle {
+    color:#00006f;
+}
+
+.myPara {
+    color: #b3b7ba
+}

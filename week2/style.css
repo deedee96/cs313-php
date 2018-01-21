@@ -1,0 +1,21 @@
+body {
+   background-image: url("http://www.eugenebsmith.com/wp-content/gallery/asian-prints/Bamboo-Giclee-397dpi-BACKGROUND-1920x1166.jpg");
+   
+}
+
+.wrapper {
+    text-align: center;
+}
+
+
+.dropdown-menu {
+  width: 100%; 
+}
+
+.btn{
+ width: 100%;
+}
+
+.dropdown-item {
+    text-align: center !important;
+}
