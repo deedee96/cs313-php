@@ -1,0 +1,27 @@
+.slogan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: pink;
+    font-size: 100px;
+    width: 100%;
+    height: 300px;
+
+    background: #2e2e2e
+}
+
+
+.slogan-content p {
+    text-align: center;
+    color: green;
+    font-size: 40px
+}
+
+
+
+.center {
+    margin: auto;
+    width: 70%;
+    border: 1px solid #115aff;
+    padding: 10px;
+}
