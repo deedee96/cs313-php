@@ -42,7 +42,7 @@
     }
 
     else {
-        header('Location: index.php');
+        header('Location: about.php');
         exit;
     }
 
