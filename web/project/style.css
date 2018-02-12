@@ -1,0 +1,24 @@
+.login_box {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 40%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.login_box h1 {
+    text-align: center;
+    color: white;
+}
+
+.inner {
+    display: table;
+    width: 75%;
+    height: 50%;    
+    margin: auto;
+}
