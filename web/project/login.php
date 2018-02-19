@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,17 +22,25 @@
   <body>
       <div class="login_box">
           <h1>Sign in</h1>
+
             <div class="inner">
+                <?php 
+                    if(isset($_SESSION["message"])) {
+                        echo "<p style='color:red';>" .$_SESSION["message"] . "</br>" . "</p>";
+                    }
+                  ?>
+                <form id="signUpForm" action="signUp.php"></form>
                 <form action="direct.php" method="post">
                   <div class="form-group" >
                     <label for="formGroupExampleInput" style="color:white;" >Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter in your username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter in your username" required>
                   </div>
                   <div class="form-group">
                     <label for="formGroupExampleInput2" style="color:white;">Password</label>
-                    <input type="text" class="form-control" id="password" name="password" placeholder="Enter in your password">
+                    <input type=password class="form-control" id="password" name="password" placeholder="Enter in your password" required>
                   </div>
                     <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary" form="signUpForm">Sign up</button>
                 </form>
           </div>
       </div>

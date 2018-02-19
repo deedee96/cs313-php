@@ -16,9 +16,23 @@
     color: white;
 }
 
+
 .inner {
     display: table;
     width: 75%;
     height: 50%;    
     margin: auto;
 }
+
+
+
+#cover {
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#cover-caption {
+  width: 100%;

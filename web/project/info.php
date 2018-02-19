@@ -1,36 +1,14 @@
 <?php
+    session_start();
+    require('fetch.php');
 
-    // default Heroku Postgres configuration URL
-    $dbUrl = getenv('DATABASE_URL');
+    $db = get_db();
 
-    if (empty($dbUrl)) {
-     // example localhost configuration URL with postgres username and a database called cs313db
-     $dbUrl = "postgres://postgres:password@localhost:5432/postgres";
-    }
-
-    $dbopts = parse_url($dbUrl);
-
-
-    $dbHost = $dbopts["host"];
-    $dbPort = $dbopts["port"];
-    $dbUser = $dbopts["user"];
-    $dbPassword = $dbopts["pass"];
-    $dbName = ltrim($dbopts["path"],'/');
-
-
-    try {
-     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    }
-    catch (PDOException $ex) {
-     print "<p>error: $ex->getMessage() </p>\n\n";
-     die();
-    }
-
-    $username = 'admin';
+    $username = $_SESSION['username'];
     $stmt = $db->prepare('SELECT * FROM contact_information WHERE user_name=:username');
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
     $stmt->execute();   
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <DOCTYPE! html>
@@ -40,44 +18,53 @@
 </head>    
 <body>
     <?php include('nav.php');?>
-    <form>
+    <form action="edit.php" id="editInfo"></form>
+    <form action="login.php"> 
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">First name</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['first_name'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['first_name'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Last name</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['last_name'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['last_name'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['user_name'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['user_name'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['email'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['email'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Phone</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['phone'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['phone'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Address 1</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['address_1'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['address_1'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Address 2</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['address_2'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['address_2'] ?>">
+        </div>
+        <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['city'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['state'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['state'] ?>">
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Zip</label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows[0]['zip'] ?>">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['zip'] ?>">
         </div>
+        <button type="submit" class="btn btn-primary mb-2" form="editInfo">Edit</button>
+        <button type="submit" class="btn btn-primary mb-2">Logout</button>
+
+
         
 
      </div>

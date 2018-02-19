@@ -59,4 +59,7 @@ CREATE TABLE reply(
  content VARCHAR(3000) NOT NULL,
  date DATE NOT NULL
 );
+
+
+ALTER TABLE contact_information ADD city VARCHAR(50);
  

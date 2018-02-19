@@ -1,31 +1,8 @@
 <?php
+    require('fetch.php');
+    session_start();
 
-    // default Heroku Postgres configuration URL
-    $dbUrl = getenv('DATABASE_URL');
-
-    if (empty($dbUrl)) {
-     // example localhost configuration URL with postgres username and a database called cs313db
-     $dbUrl = "postgres://postgres:password@localhost:5432/postgres";
-    }
-
-    $dbopts = parse_url($dbUrl);
-
-
-    $dbHost = $dbopts["host"];
-    $dbPort = $dbopts["port"];
-    $dbUser = $dbopts["user"];
-    $dbPassword = $dbopts["pass"];
-    $dbName = ltrim($dbopts["path"],'/');
-
-
-    try {
-     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    }
-    catch (PDOException $ex) {
-     print "<p>error: $ex->getMessage() </p>\n\n";
-     die();
-    }
-
+    $db = get_db();
     
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -37,13 +14,18 @@
     $stmt->execute();   
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (sizeof($rows) == 0) {
+        $_SESSION['message'] = "Username or password doesn't match with our file";
         header('Location: login.php');
         exit;
     }
 
     else {
+        unset($_SESSION['message']);
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $username;
+
         header('Location: about.php');
-        exit;
+        die();
     }
 
 ?>

@@ -6,7 +6,7 @@
 <body>
     <?php include('nav.php');?>
     <h1>Welcome!</h1>
-    <div>You are not logged in.</div>
+    <div>We will make your dream come true.</div>
     
 </body>
 </html>    
