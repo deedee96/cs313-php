@@ -34,9 +34,9 @@
               Forums
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">United States</a>
-              <a class="dropdown-item" href="#">Canada</a>
-              <a class="dropdown-item" href="#">Australia</a>
+              <a class="dropdown-item" href="forum.php?country_name=US">United States</a>
+              <a class="dropdown-item" href="forum.php?country_name=CAN">Canada</a>
+              <a class="dropdown-item" href="forum.php?country_name=AUS">Australia</a>
             </div>
           </li>
         </ul>

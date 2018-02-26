@@ -19,7 +19,7 @@
 <body>
     <?php include('nav.php');?>
     <form action="edit.php" id="editInfo"></form>
-    <form action="login.php"> 
+    <form action="destroy.php"> 
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">First name</label>
         <div class="col-sm-10">
@@ -61,8 +61,12 @@
         <div class="col-sm-10">
           <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rows['zip'] ?>">
         </div>
-        <button type="submit" class="btn btn-primary mb-2" form="editInfo">Edit</button>
-        <button type="submit" class="btn btn-primary mb-2">Logout</button>
+          <div class="text-right btn-toolbar">
+                <button type="submit" class="btn-info btn" form="editInfo">Edit</button>
+        
+                <button type="submit" class="btn-info btn">Logout</button>
+
+          </div>
 
 
         

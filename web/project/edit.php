@@ -14,6 +14,7 @@
 
     $address1 = $row['address_1'];
     $address2 = $row['address_2']; 
+
     $state = $row['state'];
     $zip = $row['zip'];
     $city = $row['city'];
@@ -86,8 +87,7 @@
                     </div>
                     <div class="form-group">
                             <label for="inputAddress2">Address 2</label>
-                            <input type="text"  <?php  if(!is_null($address2)) { echo 'value=' .$address2; }
-                                    ?> name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            <input type="text"  <?php  if(!empty($address2)) { echo 'value=' .$address2; } ?> name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                     </div>
                     <div class="form-group">
                             <label for="phone">Phone number</label>
@@ -96,62 +96,61 @@
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
                           <label for="validationDefault03">City</label>
-                          <input name="city" <?php echo 'value=' .$city; ?> type="text" class="form-control" id="validationDefault05" placeholder="City" required>
+                          <input name="city" <?php echo 'value=' .$city; ?> type="text" class="form-control" id="city" placeholder="City" required>
                         </div>
                         <div class="col-md-3 mb-3">
                           <label for="validationDefault04">State</label>
-                            <select class="form-control" id="validationDefault04" name="state">
-                                <option value="AL">AL</option>
-                                <option value="AK">AK</option>
-                                <option value="AR">AR</option>	
-                                <option value="AZ">AZ</option>
-                                <option value="CA">CA</option>
-                                <option value="CO">CO</option>
-                                <option value="CT">CT</option>
-                                <option value="DC">DC</option>
-                                <option value="DE">DE</option>
-                                <option value="FL">FL</option>
-                                <option value="GA">GA</option>
-                                <option value="HI">HI</option>
-                                <option value="IA">IA</option>	
-                                <option value="ID">ID</option>
-                                <option value="IL">IL</option>
-                                <option value="IN">IN</option>
-                                <option value="KS">KS</option>
-                                <option value="KY">KY</option>
-                                <option value="LA">LA</option>
-                                <option value="MA">MA</option>
-                                <option value="MD">MD</option>
-                                <option value="ME">ME</option>
-                                <option value="MI">MI</option>
-                                <option value="MN">MN</option>
-                                <option value="MO">MO</option>	
-                                <option value="MS">MS</option>
-                                <option value="MT">MT</option>
-                                <option value="NC">NC</option>	
-                                <option value="NE">NE</option>
-                                <option value="NH">NH</option>
-                                <option value="NJ">NJ</option>
-                                <option value="NM">NM</option>			
-                                <option value="NV">NV</option>
-                                <option value="NY">NY</option>
-                                <option value="ND">ND</option>
-                                <option value="OH">OH</option>
-                                <option value="OK">OK</option>
-                                <option value="OR">OR</option>
-                                <option value="PA">PA</option>
-                                <option value="RI">RI</option>
-                                <option value="SC">SC</option>
-                                <option value="SD">SD</option>
-                                <option value="TN">TN</option>
-                                <option value="TX">TX</option>
-                                <option value="UT">UT</option>
-                                <option value="VT">VT</option>
-                                <option value="VA">VA</option>
-                                <option value="WA">WA</option>
-                                <option value="WI">WI</option>	
-                                <option value="WV">WV</option>
-                                <option value="WY">WY</option>
+                            <select class="form-control" id="validationDefault04" name="state" >
+                                <option value="AK" <?php if($state == "AK") { echo "selected"; } ?>>AK</option>
+                                <option value="AR" <?php if($state == "AR") { echo "selected"; } ?>>AR</option>	
+                                <option value="AZ" <?php if($state == "AZ") { echo "selected"; } ?>>AZ</option>
+                                <option value="CA" <?php if($state == "CA") { echo "selected"; } ?>>CA</option>
+                                <option value="CO" <?php if($state == "CO") { echo "selected"; } ?>>CO</option>
+                                <option value="CT" <?php if($state == "CT") { echo "selected"; } ?>>CT</option>
+                                <option value="DC" <?php if($state == "DC") { echo "selected"; } ?>>DC</option>
+                                <option value="DE" <?php if($state == "DE") { echo "selected"; } ?>>DE</option>
+                                <option value="FL" <?php if($state == "FL") { echo "selected"; } ?>>FL</option>
+                                <option value="GA" <?php if($state == "GA") { echo "selected"; } ?>>GA</option>
+                                <option value="HI" <?php if($state == "HI") { echo "selected"; } ?>>HI</option>
+                                <option value="IA" <?php if($state == "IA") { echo "selected"; } ?>>IA</option>	
+                                <option value="ID" <?php if($state == "ID") { echo "selected"; } ?>>ID</option>
+                                <option value="IL" <?php if($state == "IL") { echo "selected"; } ?>>IL</option>
+                                <option value="IN" <?php if($state == "IN") { echo "selected"; } ?>>IN</option>
+                                <option value="KS" <?php if($state == "KS") { echo "selected"; } ?>>KS</option>
+                                <option value="KY" <?php if($state == "KY") { echo "selected"; } ?>>KY</option>
+                                <option value="LA" <?php if($state == "LA") { echo "selected"; } ?>>LA</option>
+                                <option value="MA" <?php if($state == "MA") { echo "selected"; } ?>>MA</option>
+                                <option value="MD" <?php if($state == "MD") { echo "selected"; } ?>>MD</option>
+                                <option value="ME" <?php if($state == "ME") { echo "selected"; } ?>>ME</option>
+                                <option value="MI" <?php if($state == "MI") { echo "selected"; } ?>>MI</option>
+                                <option value="MN" <?php if($state == "MN") { echo "selected"; } ?>>MN</option>
+                                <option value="MO" <?php if($state == "MO") { echo "selected"; } ?>>MO</option>	
+                                <option value="MS" <?php if($state == "MS") { echo "selected"; } ?>>MS</option>
+                                <option value="MT" <?php if($state == "MT") { echo "selected"; } ?>>MT</option>
+                                <option value="NC" <?php if($state == "NC") { echo "selected"; } ?>>NC</option>	
+                                <option value="NE" <?php if($state == "NE") { echo "selected"; } ?>>NE</option>
+                                <option value="NH" <?php if($state == "NH") { echo "selected"; } ?>>NH</option>
+                                <option value="NJ" <?php if($state == "NJ") { echo "selected"; } ?>>NJ</option>
+                                <option value="NM" <?php if($state == "NM") { echo "selected"; } ?>>NM</option>			
+                                <option value="NV" <?php if($state == "NV") { echo "selected"; } ?>>NV</option>
+                                <option value="NY" <?php if($state == "NY") { echo "selected"; } ?>>NY</option>
+                                <option value="ND" <?php if($state == "ND") { echo "selected"; } ?>>ND</option>
+                                <option value="OH" <?php if($state == "OH") { echo "selected"; } ?>>OH</option>
+                                <option value="OK" <?php if($state == "OK") { echo "selected"; } ?>>OK</option>
+                                <option value="OR" <?php if($state == "OR") { echo "selected"; } ?>>OR</option>
+                                <option value="PA" <?php if($state == "PA") { echo "selected"; } ?>>PA</option>
+                                <option value="RI" <?php if($state == "RI") { echo "selected"; } ?>>RI</option>
+                                <option value="SC" <?php if($state == "SC") { echo "selected"; } ?>>SC</option>
+                                <option value="SD" <?php if($state == "SD") { echo "selected"; } ?>>SD</option>
+                                <option value="TN" <?php if($state == "TN") { echo "selected"; } ?>>TN</option>
+                                <option value="TX" <?php if($state == "TX") { echo "selected"; } ?>>TX</option>
+                                <option value="UT" <?php if($state == "UT") { echo "selected"; } ?>>UT</option>
+                                <option value="VT" <?php if($state == "VT") { echo "selected"; } ?>>VT</option>
+                                <option value="VA" <?php if($state == "VA") { echo "selected"; } ?>>VA</option>
+                                <option value="WA" <?php if($state == "WA") { echo "selected"; } ?>>WA</option>
+                                <option value="WI" <?php if($state == "WI") { echo "selected"; } ?>>WI</option>	
+                                <option value="WV" <?php if($state == "WV") { echo "selected"; } ?>>WV</option>
+                                <option value="WY" <?php if($state == "WY") { echo "selected"; } ?>>WY</option>
                             </select>	                    
                         </div>
                         <div class="col-md-3 mb-3">
