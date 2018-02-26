@@ -83,11 +83,11 @@
                       </div>
                      <div class="form-group">
                             <label for="inputAddress">Address</label>
-                            <input type="text" <?php echo 'value=' .$address1; ?> name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                            <input type="text" <?php echo "value= '$address1'"; ?> name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
                     </div>
                     <div class="form-group">
                             <label for="inputAddress2">Address 2</label>
-                            <input type="text"  <?php  if(!empty($address2)) { echo 'value=' .$address2; } ?> name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            <input type="text"  <?php  if(!empty($address2)) { echo "value= '$address2'"; } ?> name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                     </div>
                     <div class="form-group">
                             <label for="phone">Phone number</label>
@@ -96,7 +96,7 @@
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
                           <label for="validationDefault03">City</label>
-                          <input name="city" <?php echo 'value=' .$city; ?> type="text" class="form-control" id="city" placeholder="City" required>
+                          <input type="text" name="city" <?php echo "value= '$city'"; ?>  class="form-control" id="city" placeholder="City" required>
                         </div>
                         <div class="col-md-3 mb-3">
                           <label for="validationDefault04">State</label>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                           <label for="validationDefault05">Zip</label>
-                          <input type="zip" <?php echo 'value=' .$zip; ?> class="form-control" id="validationDefault05"  placeholder="Zip" size=5 maxlength=5  required>
+                          <input type="text" name="zip" <?php echo 'value=' .$zip; ?> class="form-control" id="validationDefault05"  placeholder="Zip" size=5 maxlength=5  required>
                         </div>
                       </div>
                       <button class="btn btn-primary" type="submit">Submit</button>
